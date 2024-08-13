@@ -1,0 +1,68 @@
+@use 'base';
+
+.scroller {
+	background-color: base.$primary-color;
+}
+
+.scroller__inner {
+	width: max-content;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-left: 12px;
+	animation: scroll 40s var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller__inner:hover {
+	animation-play-state: paused;
+}
+
+.scroller__inner[data-direction='right'] {
+	--_animation-direction: reverse;
+}
+
+.scroller__text {
+	font-family: base.$primary-font;
+	font-size: 22px;
+	line-height: 120%;
+	color: white;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.scroller__text::after {
+	content: ' ';
+	display: inline-block;
+	position: relative;
+	bottom: 7px;
+	width: 6px;
+	height: 6px;
+	margin-left: 12px;
+	border-radius: 50%;
+	background-color: white;
+}
+
+@keyframes scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.scroller__inner {
+		height: 38px;
+	}
+
+	.scroller__text {
+		font-size: 16px;
+		line-height: 110%;
+	}
+
+	.scroller__text::after {
+		bottom: 3px;
+	}
+}

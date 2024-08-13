@@ -1,0 +1,146 @@
+@use 'base';
+$slide2-width-desktop: 394px;
+$slide2-width-mobile: 335px;
+
+.participants {
+	max-width: 1222px;
+	margin: 200px auto 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.participants__heading {
+	flex: 1 1 70%;
+	margin: 0px 0px;
+	font-size: 54px;
+	line-height: 120%;
+}
+
+.slider {
+	overflow-x: hidden;
+	position: relative;
+	flex: 1 1 100%;
+	margin-top: 60px;
+	margin-bottom: 140px;
+	order: 1;
+}
+
+.slides-wrapper {
+	position: relative;
+	top: 0;
+	left: -(calc($slide2-width-desktop * 3 + 20px));
+	display: flex;
+	column-gap: 20px;
+	&.shifting {
+		transition: left 0.5s ease-in-out;
+	}
+}
+
+.card {
+	flex: 0 0 $slide2-width-desktop;
+	height: 462px;
+	text-align: center;
+}
+
+.card__heading {
+	margin-block: 25px 0px;
+	font-family: base.$secondary-font;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 120%;
+	color: base.$text-color;
+}
+
+.card__text {
+	margin-block: 6px 0px;
+	font-family: base.$secondary-font;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 120%;
+	color: base.$text-color;
+}
+
+.card__button {
+	margin-top: 20px;
+	padding-block: 6px;
+	padding-inline: 10px;
+	font-family: base.$secondary-font;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 120%;
+	color: base.$secondary-text-color;
+	border-radius: 25px;
+	border: 2px solid base.$secondary-text-color;
+	background-color: white;
+
+	&:hover {
+		color: white;
+		background-color: base.$secondary-text-color;
+	}
+}
+
+.participants__pagination {
+	flex: 0 0 151px;
+}
+
+@media screen and (max-width: 900px) {
+	.participants {
+		width: $slide2-width-mobile;
+		margin: 117px auto 97px;
+	}
+
+	.participants__heading {
+		font-size: 36px;
+		line-height: 110%;
+	}
+
+	.slider {
+		margin-top: 40px;
+		margin-bottom: 35px;
+		order: 0;
+	}
+
+	.slides-wrapper {
+		left: -(calc($slide2-width-mobile + 20px));
+	}
+
+	.card {
+		flex: 0 0 $slide2-width-mobile;
+		height: 388px;
+	}
+
+	.card__image img {
+		width: 244px;
+		height: 244px;
+	}
+
+	.card__text {
+		margin-block: 8px 0px;
+	}
+
+	.participants__pagination {
+		flex: 0 0 138px;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (min-width: 900px) and (max-width: 1280px) {
+	.participants {
+		max-width: calc($slide2-width-desktop * 2 + 20px);
+		margin: 200px auto 97px;
+	}
+
+	.slider {
+		flex: 0 0 calc($slide2-width-desktop * 2 + 20px);
+		order: 0;
+	}
+
+	.slides-wrapper {
+		left: -(calc($slide2-width-desktop * 2 + 20px));
+	}
+
+	.participants__pagination {
+		margin-inline: auto;
+	}
+}

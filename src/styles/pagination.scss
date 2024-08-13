@@ -1,0 +1,67 @@
+@use 'base';
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.pagination__button {
+	display: inline-block;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background-color: base.$text-color;
+	background-image: url('/src/assets/images/shevron.svg');
+	color: white;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	cursor: pointer;
+	transition: 0.3s ease-in;
+
+	&:hover {
+		background-color: base.$secondary-color;
+	}
+
+	&.disabled {
+		background-color: #d6d6d6;
+		pointer-events: none;
+	}
+}
+
+.pagination__symbol {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #d6d6d6;
+
+	&.active {
+		background-color: base.$text-color;
+	}
+}
+
+.pagination__button_next {
+	transform: rotate(180deg);
+}
+
+.pagination__text {
+	font-family: base.$secondary-font;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 120%;
+	color: #d6d6d6;
+
+	&_enabled {
+		color: base.$text-color;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.pagination__button {
+		transform: scale(0.8);
+	}
+	.pagination__button_next {
+		transform: scale(0.8) rotate(180deg);
+	}
+}

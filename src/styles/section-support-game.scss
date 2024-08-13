@@ -1,0 +1,246 @@
+@use 'base';
+
+.support {
+	display: grid;
+	grid-template-columns: 740px 394px;
+	grid-template-rows: 125px 125px;
+	justify-content: space-between;
+	max-width: 1222px;
+	margin: 80px auto 0px;
+}
+
+.heading {
+	font-family: base.$primary-font;
+	font-size: 36px;
+	color: base.$text-color;
+	font-weight: 400;
+	line-height: 135%;
+	text-transform: uppercase;
+	margin: 0px 0px;
+}
+
+.support__heading:first-child {
+	position: relative;
+	top: 28px;
+}
+
+.support__heading:last-child span {
+	display: inline-block;
+	width: 740px;
+	text-align: end;
+}
+
+.support__heading:last-child span:last-child {
+	text-align: start;
+}
+
+.support__image {
+	width: 394px;
+	height: 250px;
+	background-image: url('/src/assets/images/support.png');
+	background-size: contain;
+}
+
+.heading_red {
+	display: block;
+	font-weight: 600;
+	color: base.$primary-color;
+}
+
+.game {
+	display: flex;
+	align-items: start;
+	justify-content: center;
+	flex-wrap: wrap;
+	max-width: 1222px;
+	min-height: 527px;
+	margin: 10px auto 0px;
+
+	.heading_red {
+		display: inline;
+	}
+}
+
+.game__image {
+	flex: 0 0 518px;
+	height: 600px;
+	position: relative;
+	top: 8px;
+	left: -28px;
+	background-image: url('/src/assets/images/game.jpg');
+	background-repeat: no-repeat;
+}
+
+.game__content {
+	flex: 0 1 704px;
+	margin: 15px 0px 0px 0px;
+}
+
+.game__heading {
+	margin: 40px 0px 0px 0px;
+}
+
+.game__table {
+	display: grid;
+	grid-template-columns: 43.5% 56.5%;
+	margin: 45px 0px 0px 0px;
+	font-family: base.$secondary-font;
+	font-size: 20px;
+	color: base.$text-color;
+	font-weight: 400;
+	line-height: 120%;
+
+	p {
+		margin-block: 0px 0px;
+		padding-top: 15px;
+		height: 56px;
+		border-bottom: 2px solid #d0d0d0;
+	}
+
+	p:nth-child(odd) {
+		border-right: 2px solid #d0d0d0;
+	}
+
+	p:nth-child(even) {
+		padding-left: 15px;
+		font-weight: 600;
+	}
+
+	p span {
+		text-decoration: line-through;
+		text-decoration-color: #f54932;
+		padding-right: 13px;
+	}
+}
+
+.aside-text {
+	font-family: base.$secondary-font;
+	font-size: 20px;
+	color: base.$secondary-text-color;
+	font-weight: 400;
+	line-height: 120%;
+}
+
+.game__text {
+	margin-top: 32px;
+}
+
+@media screen and (max-width: 900px) {
+	.support {
+		grid-template-columns: 335px;
+		grid-template-rows: 152px 212px 152px;
+		justify-content: center;
+		row-gap: 24px;
+		margin: 49px 0px 0px;
+	}
+
+	.support__heading:first-child {
+		top: 0px;
+	}
+
+	.support__heading:last-child span {
+		width: 335px;
+		text-align: start;
+	}
+
+	.heading {
+		font-size: 28px;
+	}
+
+	.support__image {
+		width: 335px;
+		height: 212px;
+	}
+
+	.game {
+		max-width: 335px;
+		min-height: 402px;
+	}
+
+	.game__image {
+		flex: 0 0 375px;
+		height: 415px;
+		background-size: cover;
+		top: 10px;
+		left: 0px;
+	}
+
+	.game__content {
+		margin: 0px 0px;
+	}
+
+	.game__heading {
+		margin: 36px 0px 0px 0px;
+	}
+
+	.game__table {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(6, 45px) 55px repeat(2, 45px);
+		margin: 35px 0px 0px 0px;
+
+		p {
+			grid-column: 1/3;
+			height: 45px;
+			padding-top: 10px;
+			border-bottom: none;
+		}
+
+		p:nth-child(n + 7):nth-child(-n + 7) {
+			grid-column: 1/2;
+			border-bottom: 2px solid #d0d0d0;
+		}
+
+		p:nth-child(n + 8):nth-child(-n + 8) {
+			grid-column: 2/3;
+		}
+
+		p:nth-child(n + 7):nth-child(-n + 8) {
+			height: 55px;
+			padding-top: 15px;
+		}
+
+		p:nth-child(odd) {
+			border-right: none;
+		}
+
+		p:nth-child(even) {
+			padding-top: 5px;
+			padding-left: 0px;
+			border-bottom: 2px solid #d0d0d0;
+		}
+
+		p:last-child {
+			border-bottom: none;
+		}
+	}
+
+	.aside-text {
+		font-size: 18px;
+	}
+
+	.game__text {
+		margin-top: 26px;
+	}
+}
+
+@media screen and (min-width: 900px) and (max-width: 1280px) {
+	.support {
+		grid-template-columns: 740px;
+		grid-template-rows: 165px 250px 152px;
+		row-gap: 24px;
+		justify-content: center;
+		margin: 80px 20px 0px;
+	}
+
+	.support__image {
+		justify-self: center;
+	}
+
+	.support__heading:last-child span {
+		text-align: start;
+	}
+
+	.game__content {
+		margin: 15px auto 0px;
+	}
+}
